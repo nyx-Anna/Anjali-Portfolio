@@ -10,7 +10,7 @@ function Navbar() {
       {/* Navbar */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
         <h1 className="text-3xl font-bold tracking-wide text-white">
-          Anjali Jha
+          Anjali's Portfolio
         </h1>
 
         <ul className="hidden md:flex gap-8 text-gray-300">
