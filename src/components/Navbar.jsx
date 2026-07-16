@@ -1,70 +1,70 @@
-import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { useState } from "react";
+import profile from "../assets/profile.jpg";
+
 function Navbar() {
-  //Here, First item = current value , second item = function to update it, so menuOpen stores true or false And setMenuOpen() changes it.
   const [menuOpen, setMenuOpen] = useState(false);
-  const navLink = "cursor-pointer hover:text-purple-400 transition";
+
+  const navLinks = ["Home", "About", "Projects", "Contact"];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#10002b]/80 backdrop-blur-md border-b border-white/10 z-50">
-      {/* Navbar */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
-        <h1 className="text-3xl font-bold tracking-wide text-white">
-          Anjali's Portfolio
-        </h1>
-
-        <ul className="hidden md:flex gap-8 text-gray-300">
-          <li className={navLink}>Home</li>
-
-          <li className={navLink}>About</li>
-
-          <li className={navLink}>Skills</li>
-
-          <li className={navLink}>Projects</li>
-
-          <li className={navLink}>Contact</li>
-        </ul>
-        <button className="hidden md:block bg-purple-600 hover:bg-purple-500 text-white px-5 py-2 rounded-full transition">
-          Resume
-        </button>
-
-        <div className="md:hidden">
-          <button
-            onClick={() => {
-              setMenuOpen((prev) => !prev);
-            }}
+    <header className="fixed top-0 left-0 w-full bg-black backdrop-blur-md z-50 border-b border-white/10">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
+        {/* Profile */}
+        <div className="flex items-center gap-2">
+          <img
+            src={profile}
+            alt="Anjali Jha"
+            className="w-10 h-10 rounded-full object-cover border-2 border-violet-400
+            shadow-[0_0_12px_rgba(139,92,246,0.5)] transition-all duration-300 hover:scale-110 hover:rotate-5"
+          />
+          {/* Logo */}
+          <h1
+            className="text-2xl text-violet-400"
+            style={{ fontFamily: "Pacifico, cursive" }}
           >
-            {menuOpen ? (
-              <HiX size={30} className="text-white" />
-            ) : (
-              <HiMenu size={30} className="text-white" />
-            )}
-          </button>
+            Portfolio
+          </h1>
         </div>
-      </div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-10">
+          {navLinks.map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="text-[15px] text-gray-300 hover:text-violet-400 transition duration-300"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-3xl text-white"
+        >
+          {menuOpen ? <HiX /> : <HiMenu />}
+        </button>
+      </nav>
+
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#240046] text-white">
-          <ul className="flex flex-col items-center gap-6 py-8">
-            <li className={navLink}>Home</li>
-
-            <li className={navLink}>About</li>
-
-            <li className={navLink}>Skills</li>
-
-            <li className={navLink}>Projects</li>
-
-            <li className={navLink}>Contact</li>
-
-            <li>
-              <button className="bg-purple-600 hover:bg-purple-500 text-white px-5 py-2 rounded-full transition">
-                Resume
-              </button>
-            </li>
-          </ul>
+        <div className="md:hidden bg-[#0B0B0B] border-t border-white/10">
+          {navLinks.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="block px-6 py-4 text-gray-300 hover:text-violet-400"
+            >
+              {item}
+            </a>
+          ))}
         </div>
       )}
-    </nav>
+    </header>
   );
 }
 

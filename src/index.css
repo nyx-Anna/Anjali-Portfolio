@@ -5,22 +5,28 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --background: #050505;
+  --surface: #111111;
+  --surface-light: #1a1a1a;
+
+  --primary: #8b5cf6;
+  --primary-light: #a855f7;
+
+  --border: #2b1e4a;
+
+  --text: #ffffff;
+  --text-secondary: #b8b8b8;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #10002b;
-  color: white;
-  font-family: Inter, sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-li {
-  list-style: none;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Outfit", sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
