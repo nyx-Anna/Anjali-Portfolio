@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-black backdrop-blur-md z-50 border-b border-white/10">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Profile */}
         <div className="flex items-center gap-2">
           <img

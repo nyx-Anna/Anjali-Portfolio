@@ -53,11 +53,11 @@ Contact
 
 # Desktop
 
-Logo           Links
+Logo Links
 
 # Mobile
 
-Logo           Hamburger
+Logo Hamburger
 
 # Hero
 
@@ -70,28 +70,59 @@ Buttons
 # Layout
 
 flex
-left side
-Text
-right side
-Image
+center positioned
+glow behind texts
+Badge(for hiring)
+greeting
+Position
+Simple description
 
 # Hero Button
 
-Projects(filled)
-Resume(outlined)
+view my work(filled)
+get in touch(outlined)
 
 # About
 
 Left
 Paragraph
 Right
-Pixel Illustration
+Profile image(with glow behind) with flip card
+behind profile (download Resume button)
 
 # Skills
 
 Frontend
-Backend
+Languages & Backend
 Tools
+
+# Card Design
+
+bg-[#111111]
+border border-violet-500/20
+rounded-2xl
+hover:border-violet-500
+hover:-translate-y-2
+transition-all duration-500
+
+# Skill Badge
+
+rounded-full
+border
+bg-violet-500/10
+text-violet-300
+px-3
+py-1
+hovered with purple glow
+
+# Animation
+
+Cards-
+hover:-translate-y-2
+
+Badges-
+hover:bg-violet-500
+hover:text-white
 
 # Education
 

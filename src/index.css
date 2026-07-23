@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 1px ;
 }
 :root {
   --background: #050505;
@@ -24,6 +25,7 @@ html {
 }
 
 body {
+  width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
   font-family: "Outfit", sans-serif;
