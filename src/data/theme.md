@@ -126,7 +126,7 @@ hover:text-white
 
 # Education
 
-We will createtheline using border-1
+We will create the line using border-1
 
 # Projects
 

@@ -5,7 +5,7 @@ import profile from "../assets/profile.jpg";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = ["Home", "About", "Projects", "Contact"];
+  const navLinks = ["Home", "About","Skills","Education", "Projects", "Contact"];
 
   return (
     <header className="fixed top-0 left-0 w-full bg-black backdrop-blur-md z-50 border-b border-white/10">
