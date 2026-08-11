@@ -162,7 +162,7 @@ projects.map(...)
 Two columns
 Left(Form)
 Right(Text & Social media)
-(we will connectthe form using EmailJS)
+(we will connect the form using EmailJS)
 
 # Footer
 

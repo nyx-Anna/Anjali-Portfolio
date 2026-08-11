@@ -4,12 +4,20 @@ function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center justify-center bg-black pt-20 overflow-hidden"
+      className="
+      relative 
+      min-h-screen 
+      flex 
+      items-center
+      justify-center
+      bg-black
+      pt-28 
+      overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-6 lg:pl-8">
         {/* Heading */}
         <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
             About Me
           </h2>
         </div>

@@ -4,12 +4,12 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="relative bg-black pt-24 pb-32 overflow-hidden"
+      className="relative min-h-screen flex items-center bg-black pt-24 overflow-hidden"
     >
       {/* Glow */}
       <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-violet-700/10 blur-[130px] rounded-2xl pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-6 lg:pl-8">
         {/* Heading */}
         <div className="mb-10 lg:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white">Skills</h2>
