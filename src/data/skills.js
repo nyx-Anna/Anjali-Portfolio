@@ -12,11 +12,7 @@ export const skills = [
   },
   {
     title: "Languages",
-    technologies: [
-      "Java",
-      "Python",
-      "MySQL",
-    ],
+    technologies: ["Java", "Python", "MySQL"],
   },
   {
     title: "Tools",
@@ -24,6 +20,8 @@ export const skills = [
       "Git",
       "GitHub",
       "VS Code",
+      "Vite",
+      "Chrome DevTools",
       "Postman",
       "Vercel",
       "Figma",

@@ -18,14 +18,14 @@ function Contact() {
         "
       ></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12">
         {/* Heading */}
         <div className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
             Let's Work Together
           </h2>
 
-          <p className="text-gray-400 mt-5 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-5 mt-6 leading-8 text-center">
             Have a project in mind or want to work together? I'd love to hear
             from you.
           </p>

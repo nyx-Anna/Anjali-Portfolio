@@ -174,7 +174,7 @@ Social Icons
 
 # Components We'll reuse
 
-Buuton
+Button
 Card
 Section Title
 

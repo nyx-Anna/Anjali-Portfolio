@@ -14,7 +14,7 @@ function About() {
       pt-28 
       overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-6 lg:pl-8">
+      <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-16">
         {/* Heading */}
         <div className="mb-24">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center">

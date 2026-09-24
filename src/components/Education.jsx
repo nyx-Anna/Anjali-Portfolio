@@ -3,25 +3,17 @@ function Education() {
   return (
     <section
       id="education"
-      className="relative min-h-screen flex bg-black py-24 overflow-hidden"
+      className="
+      relative 
+      bg-black 
+      py-20
+      pt-28
+      overflow-hidden"
     >
-      {/* Purple Glow */}
-      <div
-        className="
-      absolute 
-      left-1/2 top-40 -translate-x-1/2 
-      w-[450px]
-      h-[450px]
-      bg-violet-700/10 
-      blur-[140px] 
-      rounded-full 
-      pointer-events-none"
-      ></div>
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-8  md:px-10 lg:px-16 w-full">
         {/* Heading */}
         <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
             Education
           </h2>
         </div>
@@ -33,7 +25,6 @@ function Education() {
           absolute 
           left-5 
           top-5
-          // bottom
           h-[calc(100%-5rem)]
           w-[2px] 
           bg-violet-500/30"
