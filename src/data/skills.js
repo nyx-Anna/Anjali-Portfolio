@@ -1,17 +1,22 @@
 export const skills = [
   {
-    title: "Frontend",
+    title: "Frontend & Backend",
     technologies: [
       "HTML",
       "CSS",
       "JavaScript",
       "React",
       "Tailwind CSS",
-      "TypeScript",
+      "TypeScript(Learning)",
+      "Bootstrap",
+      "Responsive Web Design",
+      "REST APIs",
+      "Node.js(Learning)",
+      "Flask(Basics)",
     ],
   },
   {
-    title: "Languages",
+    title: "Languages & Database",
     technologies: ["Java", "Python", "MySQL"],
   },
   {
