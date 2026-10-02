@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: 1px ;
-}
-
 :root {
   --background: #050505;
   --surface: #111111;
@@ -32,4 +25,89 @@ body {
   font-family: "Outfit", sans-serif;
   background: var(--background);
   color: var(--text);
+}
+
+/* Keep base rules in a layer so Tailwind utilities can override them. */
+@layer base {
+  body {
+    min-width: 320px;
+  }
+  section {
+    scroll-margin-top: 5rem;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 5px;
+  }
+}
+
+@layer components {
+  .page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 4rem);
+  }
+  .section-space {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+  .section-heading {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+  .portrait-card {
+    width: min(100%, 340px);
+    aspect-ratio: 1;
+    perspective: 1200px;
+  }
+  .portrait-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 650ms ease;
+  }
+  .portrait-card.is-flipped .portrait-inner {
+    transform: rotateX(180deg);
+  }
+  .portrait-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #8b5cf6;
+    border-radius: 1.5rem;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #100b1c;
+    box-shadow: 0 20px 70px #8b5cf625;
+  }
+  .portrait-back {
+    transform: rotateX(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

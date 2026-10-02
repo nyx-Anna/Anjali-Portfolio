@@ -5,21 +5,11 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="
-      relative
-      min-h-screen
-      flex
-      items-center
-      justify-center
-      bg-black 
-      pt-28
-      py-20
-      overflow-hidden
-      "
+      className="relative bg-black section-space"
     >
-      <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-16">
+      <div className="page-container">
         {/* Heading */}
-        <div className="mb-24">
+        <div className="section-heading">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
             My Projects
           </h2>
@@ -33,13 +23,13 @@ function Projects() {
 
         {/* Project Grid */}
         <div
-          className="
+          className=" 
           grid
           grid-cols-1
           md:grid-cols-2
           lg:grid-cols-3
           gap-6
-          items-center
+          items-stretch
           "
         >
           {projects.map((project, index) => (

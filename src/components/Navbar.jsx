@@ -10,8 +10,8 @@ function Navbar() {
   return (
     <header 
     className="fixed top-0 left-0 w-full bg-black backdrop-blur-md z-50 border-b border-white/10">
-      <nav 
-      className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <nav aria-label="Main navigation" 
+      className="page-container flex items-center justify-between py-4">
         {/* Profile */}
         <div className="flex items-center gap-2">
           <img
@@ -30,7 +30,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-5 lg:gap-8">
           {navLinks.map((item) => (
             <li key={item}>
               <a
@@ -46,7 +46,10 @@ function Navbar() {
         {/* Mobile Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-3xl text-white"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          className="md:hidden p-2 text-3xl text-white"
         >
           {menuOpen ? <HiX /> : <HiMenu />}
         </button>
@@ -54,10 +57,11 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0B0B0B] border-t border-white/10">
+        <div id="mobile-navigation" className="md:hidden bg-[#0B0B0B] border-t border-white/10">
           {navLinks.map((item) => (
             <a
               key={item}
+              onClick={() => setMenuOpen(false)}
               href={`#${item.toLowerCase()}`}
               className="block px-6 py-4 text-gray-300 hover:text-violet-400"
             >

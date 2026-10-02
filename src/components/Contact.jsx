@@ -1,6 +1,51 @@
+import { useRef, useState } from "react";
+import { isEmailConfigured, sendContactEmail } from "../lib/contactEmail";
+
+const emailConfig = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+};
+
 function Contact() {
+  const [status, setStatus] = useState("idle");
+  const [feedback, setFeedback] = useState("");
+  const sending = useRef(false);
+  const configured = isEmailConfigured(emailConfig);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (sending.current) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    sending.current = true;
+    setStatus("sending");
+    setFeedback("");
+    try {
+      await sendContactEmail(
+        {
+          name: String(data.get("name") || ""),
+          email: String(data.get("email") || ""),
+          message: String(data.get("message") || ""),
+        },
+        emailConfig,
+      );
+      setStatus("success");
+      setFeedback("Thanks for reaching out! Your message has been sent.");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setFeedback(error.message);
+    } finally {
+      sending.current = false;
+    }
+  }
+
   return (
-    <section id="contact" className="relative bg-black py-24 overflow-hidden">
+    <section
+      id="contact"
+      className="relative bg-black section-space overflow-hidden"
+    >
       {/* Purple Glow */}
       <div
         className="
@@ -18,9 +63,9 @@ function Contact() {
         "
       ></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12">
+      <div className="relative z-10 page-container">
         {/* Heading */}
-        <div className="mb-20">
+        <div className="section-heading">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
             Let's Work Together
           </h2>
@@ -49,13 +94,28 @@ function Contact() {
               Send me a message
             </h3>
 
-            <form className="space-y-5">
+            <form
+              className="space-y-5"
+              onSubmit={handleSubmit}
+              aria-busy={status === "sending"}
+            >
               {/* Name */}
               <div>
-                <label className="block text-gray-300 mb-2">Name</label>
+                <label
+                  htmlFor="contact-name"
+                  className="block text-gray-300 mb-2"
+                >
+                  Name
+                </label>
 
                 <input
                   type="text"
+                  id="contact-name"
+                  name="name"
+                  autoComplete="name"
+                  required
+                  maxLength={100}
+                  disabled={status === "sending"}
                   placeholder="Your name"
                   className="
                   w-full
@@ -77,10 +137,21 @@ function Contact() {
 
               {/* Email */}
               <div>
-                <label className="block text-gray-300 mb-2">Email</label>
+                <label
+                  htmlFor="contact-email"
+                  className="block text-gray-300 mb-2"
+                >
+                  Email
+                </label>
 
                 <input
                   type="email"
+                  id="contact-email"
+                  name="email"
+                  autoComplete="email"
+                  required
+                  maxLength={254}
+                  disabled={status === "sending"}
                   placeholder="your@email.com"
                   className="
                   w-full
@@ -102,10 +173,20 @@ function Contact() {
 
               {/* Message */}
               <div>
-                <label className="block text-gray-300 mb-2">Message</label>
+                <label
+                  htmlFor="contact-message"
+                  className="block text-gray-300 mb-2"
+                >
+                  Message
+                </label>
 
                 <textarea
-                  rows="3"
+                  rows="5"
+                  id="contact-message"
+                  name="message"
+                  required
+                  maxLength={5000}
+                  disabled={status === "sending"}
                   placeholder="Tell me about your project..."
                   className="
                   w-full
@@ -129,6 +210,14 @@ function Contact() {
               {/* Button */}
               <button
                 type="submit"
+                disabled={!configured || status === "sending"}
+                style={{
+                  opacity: !configured || status === "sending" ? 0.5 : 1,
+                  cursor:
+                    !configured || status === "sending"
+                      ? "not-allowed"
+                      : "pointer",
+                }}
                 className="
                 w-full
                 py-3
@@ -142,8 +231,25 @@ function Contact() {
                 duration-300
                 "
               >
-                Send Message
+                {status === "sending" ? "Sending…" : "Send Message"}
               </button>
+              <p
+                role="status"
+                aria-live="polite"
+                className={
+                  status === "error"
+                    ? "text-sm text-rose-300"
+                    : "text-sm text-violet-200"
+                }
+              >
+                {feedback}
+              </p>
+              {!configured && (
+                <p className="text-sm text-gray-400">
+                  The contact form is being set up. You can email me directly
+                  below.
+                </p>
+              )}
             </form>
           </div>
 

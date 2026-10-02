@@ -4,18 +4,11 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="
-      relative 
-      bg-black 
-      flex
-      pt-28 
-      items-center 
-      justify-center 
-      overflow-hidden"
+      className="relative bg-black section-space"
     >
-      <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-16">
+      <div className="page-container">
         {/* Heading */}
-        <div className="mb-24">
+        <div className="section-heading">
           <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
             Skills
           </h2>
@@ -28,7 +21,7 @@ function Skills() {
         md:grid-cols-2 
         lg:grid-cols-3 
         gap-4
-        items-center"
+        items-stretch"
         >
           {skills.map((item) => (
             <div
@@ -37,7 +30,7 @@ function Skills() {
               border border-violet-500/20 
               rounded-xl 
               p-7
-              min-h-[110px]
+              h-full
               hover:border-violet-500
               hover:shadow-[0_0_25px_rgba(139,92,246,0.2)]
               active:scale-[0.98]
@@ -48,7 +41,7 @@ function Skills() {
                 {item.title}
               </h3>
               {/* Bages */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-2">
                 {item.technologies.map((skill) => (
                   <span
                     key={skill}
@@ -56,7 +49,7 @@ function Skills() {
                     inline-flex 
                     items-center 
                     justify-center
-                    px-5
+                    px-3
                     py-2 
                     rounded-xl
                     border border-violet-500 text-gray-300 

@@ -2,7 +2,7 @@ function Footer() {
   return (
     <footer className="bg-black border-t border-violet-500/20">
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
+      <div className="page-container py-10">
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-5">
 
@@ -14,7 +14,7 @@ function Footer() {
             </h3>
 
             <p className="text-gray-500 text-sm mt-1">
-              Frontend Developer
+              Web Developer
             </p>
           </div>
 
@@ -68,7 +68,7 @@ function Footer() {
           </p>
 
           <p className="text-gray-600 text-xs mt-2">
-            Built with React & Tailwind CSS
+            Built with 💜
           </p>
 
         </div>

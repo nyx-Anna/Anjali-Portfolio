@@ -20,8 +20,9 @@ function ProjectCard({ project }) {
     >
       {/* Image */}
       <div className="relative overflow-hidden">
-        <img
+        {project.image ? <img
           src={project.image}
+          loading="lazy"
           alt={project.title}
           className="
           w-full
@@ -31,7 +32,7 @@ function ProjectCard({ project }) {
           duration-700
           group-hover:scale-110
           "
-        />
+        /> : <div className="h-52 flex items-center justify-center bg-gradient-to-br from-violet-950 to-[#171020] text-violet-300 text-lg tracking-widest">COMING SOON</div>}
         {/* Image transition on hover */}
         <div className="
         absolute
@@ -79,7 +80,7 @@ function ProjectCard({ project }) {
         </div>
 
         {/* Buttons */}
-        <div className="mt-auto flex gap-4 pt-7">
+        {project.live !== "#" ? <div className="mt-auto flex gap-4 pt-7">
 
           <a
             href={project.live}
@@ -120,7 +121,7 @@ function ProjectCard({ project }) {
             GitHub
           </a>
 
-        </div>
+        </div> : <p className="mt-auto pt-7 text-sm text-violet-300">In development · Stay tuned</p>}
 
       </div>
     </div>

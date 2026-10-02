@@ -3,7 +3,6 @@ import movie from "../assets/projects/movie.png";
 import task from "../assets/projects/task.png";
 import weather from "../assets/projects/weather.png";
 import tic from "../assets/projects/tictactoe.png";
-import coming from "../assets/projects/comingsoon.png";
 
 const projects = [
   {
@@ -63,7 +62,7 @@ const projects = [
 
   {
     title: "Coming Soon",
-    image: coming,
+    image: null,
     description:
       "A real client website currently under development. It will be deployed here once completed and ready for production.",
     tech: ["React", "Tailwind", "Coming Soon"],

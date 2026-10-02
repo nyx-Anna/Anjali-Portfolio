@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local EmailJS configuration
+.env
+.env.*
+!.env.example
