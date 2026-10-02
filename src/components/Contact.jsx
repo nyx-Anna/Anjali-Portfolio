@@ -244,12 +244,6 @@ function Contact() {
               >
                 {feedback}
               </p>
-              {!configured && (
-                <p className="text-sm text-gray-400">
-                  The contact form is being set up. You can email me directly
-                  below.
-                </p>
-              )}
             </form>
           </div>
 
