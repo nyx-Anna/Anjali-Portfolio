@@ -2,7 +2,7 @@
 
 My personal developer portfolio showcasing my projects, skills and education.
 
-🔗 [View Portfolio URL]
+🔗 https://anjali-portfolio-rho.vercel.app/
 
 ## Tech Stack
 
